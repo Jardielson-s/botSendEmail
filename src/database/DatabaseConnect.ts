@@ -1,21 +1,12 @@
-import dotenv from 'dotenv';
-dotenv.config();
+//import dotenv from 'dotenv';
+//dotenv.config();
+import  mongoose from "mongoose";
 
-import  mongoose, { Connection }  from "mongoose";
+async function connect(url: string){
+    await mongoose.connect(url);
+} 
 
-class DataBase {
+const url = process.env.URL_MONGO || 'mongodb://localhost:27017/admin';
+connect(url).catch(err => console.error(err));
 
-    private  url: string;
-    constructor(url: string){
-        this.url = url;
-    }
-
-    public createConnection(){
-        return mongoose.connect(this.url, {
-            
-        })
-    }
-}
-
-const dataBase = new DataBase(process.env.PORT);
-export default  dataBase.createConnection();
+export default mongoose;

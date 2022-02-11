@@ -1,6 +1,8 @@
-import { Router } from 'express';
+import express from 'express';
+import UserContol from '../Controllers/UserController';
 
-const router = Router();
+const router = express();
 
+router.get("/api/sendMessage",UserContol.sendEmail);
 
 export default router;
