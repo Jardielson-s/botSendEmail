@@ -13,7 +13,7 @@ interface Credentials {
 interface BodyEmaail {
     author: string;
     subject: string;
-    email: Object;
+    email: string;
     recipient: string;
     data: Date;
 }
@@ -59,8 +59,38 @@ class Puppeteer {
 
     async sendEmail(bodyEmail: BodyEmaail, credential: Credentials): Promise<Object> {
         const datas = this.startingPuppeter(credential);
+        const properties = {
+            compose: ".T-I.T-I-KE.L3",
+            div: 'div[class=".nH Hd"]',
+            recipient: 'textarea[class=".v0"]',
+            subject: 'input[class=".aoT"]',
+            message: 'div[class=".Am.Al.editable.LW-avf.tS-tW"',
+            send: 'div[class=".T-I.J-J5-Ji.aoO.v7.T-I-atl.L3"'
+        };
+        const corp = bodyEmail;
+        await (await datas).puppeter.click(properties.compose);
 
-        await (await datas).puppeter.click("T-I T-I-KE L3");
+        //console.log(form)
+        //await (await datas).puppeter.waitForSelector(properties.div);
+        //await (await datas).puppeter.waitForNavigation();
+        //await (await datas).puppeter.waitForSelector(properties.recipient);
+        //await (await datas).puppeter.type(properties.recipient, bodyEmail.recipient);
+        //await (await datas).puppeter.waitForNavigation();
+        //await (await datas).puppeter.waitForSelector(properties.subject);
+        //await (await datas).puppeter.type(properties.subject, properties.subject);
+        //await (await datas).puppeter.waitForNavigation();
+        //await (await datas).puppeter.waitForSelector(properties.message);
+        //await (await datas).puppeter.type(properties.message, bodyEmail.email);
+        //await (await datas).puppeter.waitForNavigation();
+        //await (await datas).puppeter.waitForSelector(properties.send);
+        //await (await datas).puppeter.click(properties.send);
+
+
+        //ecrever .vO
+        //assunto .aoT
+        //message .Am.Al.editable.LW-avf.tS-tW
+        //enviar .T-I.J-J5-Ji.aoO.v7.T-I-atl.L3 
+        //this.closePuppeter((await datas).puppeter);
         return {};
     }
 

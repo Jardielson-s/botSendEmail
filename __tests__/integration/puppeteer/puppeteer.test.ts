@@ -8,6 +8,13 @@ describe('testing puppeteer functions', () => {
     })
 
     it('send email', async () => {
+        const data = await pupp.sendEmail({
+            author: 'json silva', subject: 'teste puppeter',
+            email: 'hello jardielson',
+            recipient: 'jardielsonbio@gmail.com',
+            data: new Date()
+        }, { user: 'jsonsilva20@gmail.com', passsword: 'json*31415' });
+
 
     });
 })
